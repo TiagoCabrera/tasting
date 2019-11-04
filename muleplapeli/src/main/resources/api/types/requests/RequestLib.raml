@@ -1,0 +1,16 @@
+#%RAML 1.0 Library
+usage: Contains a list of requests
+
+uses: 
+  users: ../UsersLib.raml
+
+types:
+  Request: !include Request.raml  
+
+  PostUserRequest:
+    type: Request
+    properties:
+      user:
+        type: users.user_request
+        required: true
+      

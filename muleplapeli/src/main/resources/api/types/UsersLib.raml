@@ -1,0 +1,22 @@
+#%RAML 1.0 Library
+usage: |
+  Libraries of generics
+
+types:
+
+  user_request:
+    type: object
+    properties:
+      username:
+        type: string
+        required: true
+      password:
+        type: string
+        required: true
+
+  user_response:
+    type: object
+    properties:
+      access:
+        type: string
+        required: false

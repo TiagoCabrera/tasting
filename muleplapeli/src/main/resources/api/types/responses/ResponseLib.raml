@@ -1,0 +1,17 @@
+#%RAML 1.0 Library
+
+usage: |
+  Libraries of generics
+uses: 
+  users: ../UsersLib.raml
+
+types:
+  Response: !include Response.raml  
+  
+  PostUserResponse:
+    type: Response
+    properties:
+      data:
+        properties:
+          users:
+            type: users.user_response

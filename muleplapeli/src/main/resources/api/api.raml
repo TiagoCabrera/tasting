@@ -1,0 +1,30 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/08e29677-d7c1-4b09-b920-39ee12b696f6/ # 
+title: Plapeli API System
+version: 1.0
+
+uses:
+  response: types/responses/ResponseLib.raml
+  request: types/requests/RequestLib.raml
+
+resourceTypes:
+  collection: !include resourceTypes/collection.raml
+  collection-item: !include resourceTypes/collection-item.raml
+  action: !include resourceTypes/action.raml
+  action-with-body: !include resourceTypes/action-with-body.raml
+
+/users:
+  type: action-with-body
+  post:
+    description: |
+      Description: Getr.
+    body:
+      application/json:
+        type: request.PostUserRequest
+        example: !include examples/requests/PostUserRequest.raml
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: response.PostUserResponse
+            example: !include examples/responses/PostUserResponse.raml

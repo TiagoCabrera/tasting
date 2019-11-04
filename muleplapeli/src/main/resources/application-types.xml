@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="bd_object" format="json">
+      <types:shape format="weave" example="output_db.json"><![CDATA[%dw 2.0
+
+type bd_object = {|
+  resultSet1: Array<{| code: String |}>, 
+  updateCount1: String
+|} {"example": "{\"resultSet1\":[{\"code\":\"401\"}],\"updateCount1\":\"0\"}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#077bfdce-525a-469d-8ea1-f6fdeeb1ae0d">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="bd_object"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

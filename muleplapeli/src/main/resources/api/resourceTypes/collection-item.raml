@@ -1,0 +1,56 @@
+#%RAML 1.0 ResourceType
+
+description: Entity representing a <<resourcePathName|!singularize>>
+
+uses:  
+  traits-lib: ../traits/TraitsLib.raml
+  response: ../types/responses/ResponseLib.raml
+
+is: [ traits-lib.client-id-required ]
+get?:
+  description: Retrieves a specific <<resourcePathName|!singularize>>.
+  responses:
+    200:
+      body:
+        application/json: 
+          #type: response.Get<<resourcePathName | !singularize | !uppercamelcase>>Response
+    400:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/400.raml
+    401:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/401.raml
+    403:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/403.raml 
+    404:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/404.raml
+    415:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/415.raml
+    500:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/500.raml 
+    501:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/501.raml 
+    502:
+      body:
+        application/json:
+          type: response.Response
+          example: !include ../examples/errors/502.raml 

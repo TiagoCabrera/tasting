@@ -1,0 +1,11 @@
+#%RAML 1.0 DataType
+
+additionalProperties: false
+properties:
+  meta:
+    properties:
+      status:
+        enum: [ succeeded, failed ]
+      messages:
+        type: array
+        items: !include ResponseMessage.raml
